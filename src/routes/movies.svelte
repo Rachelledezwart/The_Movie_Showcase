@@ -11,14 +11,18 @@
         await fetch(url)
         .then( response => response.json() )
         .then( data => {movies = data.results} )
+        .catch(error => {
+            console.log(error);
+            return [];
+        });
     }); 
 
 </script> 
 
 {#if movies}
     <section class="h-screen flex">
-        {#each movies.slice(0,4) as movie}
-            <MovieHeader {movie} />
+        {#each movies.slice(0,4) as movie, i}
+            <MovieHeader {movie} slide={i} />
         {/each}
     </section>
 {/if}
