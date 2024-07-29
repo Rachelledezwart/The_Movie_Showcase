@@ -1,5 +1,4 @@
 <script lang="ts">
-
     import { onMount } from "svelte";
     import { PUBLIC_APIKEY } from "$env/static/public";
     import Movie from "./movie.svelte";
@@ -9,6 +8,11 @@
 
     let childDivs: HTMLDivElement[] = [];
     let currentIndex = 0;
+    let countdown = 0;
+    let intervalId: number;
+    let countdownWidth = 100; // Initial width of the countdown bar in percentage
+
+    const timeBetweenMovies: number = 20; // in seconds
 
     onMount(async () => {
         await fetch(url)
@@ -22,9 +26,24 @@
         childDivs = Array.from(document.querySelectorAll('.movie-container > div'));
 
         setTimeout(() => {
+            startCountdown(timeBetweenMovies);
             applyClassToDivs();
-        }, 10000);
+        }, timeBetweenMovies * 1000);
     }); 
+
+    function startCountdown(duration: number) {
+        countdown = duration;
+        countdownWidth = 100;
+        clearInterval(intervalId);
+
+        intervalId = setInterval(() => {
+            countdown -= 1;
+            countdownWidth = (countdown / duration) * 100;
+            if (countdown <= 0) {
+                clearInterval(intervalId);
+            }
+        }, 1000);
+    }
 
     function applyClassToDivs() {
         if (childDivs.length === 0) return;
@@ -32,22 +51,25 @@
         const currentDiv = childDivs[currentIndex];
         currentDiv.classList.add('active');
 
+        startCountdown(timeBetweenMovies);
         setTimeout(() => {
             currentDiv.classList.remove('active');
             currentIndex = (currentIndex + 1) % childDivs.length;
 
             if (currentIndex === 0) {
+                // All divs have been active, now remove the class from all divs for a break period to display "main" screen
                 setTimeout(() => {
                     childDivs.forEach(div => div.classList.remove('active'));
+                    startCountdown(timeBetweenMovies);
                     setTimeout(() => {
                         applyClassToDivs();
-                    }, 20000); // 20 seconds to display the "main" section
-                }, 20000);
+                    }, timeBetweenMovies * 1000);
+                }, 1000);
             } else {
                 applyClassToDivs();
             }
-        }, 20000); // 20 seconds for each div
-  }
+        }, timeBetweenMovies * 1000);
+    }
 </script> 
 
 {#if movies}
@@ -58,7 +80,12 @@
     </section>
 {/if}
 
+<div class="countdown-bar bg-rose-800 absolute h-3 -mt-3" style="width: {countdownWidth}%;"></div>
+
 <style>
+    .countdown-bar {
+        transition: width 1s linear; /* Smooth transition for the shrinking bar */
+    }
     :global(.active) {
         flex-basis: 100%;
     }
