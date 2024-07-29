@@ -74,13 +74,13 @@
 
 {#if movies}
     <section class="movie-container h-screen flex">
-        {#each movies.slice(0,4) as movie, i}
+        {#each movies.slice(0,4) as movie}
             <Movie {movie} />
         {/each}
     </section>
 {/if}
 
-<div class="countdown-bar bg-rose-800 absolute h-3 -mt-3" style="width: {countdownWidth}%;"></div>
+<div class="countdown-bar bg-rose-800 absolute h-2 -mt-2" style="width: {countdownWidth}%;"></div>
 
 <style>
     .countdown-bar {
