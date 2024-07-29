@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Movies from "./movies.svelte";
 </script>
 
