@@ -1,10 +1,19 @@
 <script lang="ts">
+    import { PUBLIC_API_KEY } from "$env/static/public";
     import { onMount } from "svelte";
-    import { PUBLIC_APIKEY } from "$env/static/public";
     import Movie from "./movie.svelte";
-    
-    let movies: any[] = [];
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${PUBLIC_APIKEY}`; 
+
+    interface Movie {
+        id: number;
+        title: string;
+        overview: string;
+        release_date: string;
+        backdrop_path: string;
+        vote_average: number;
+    }
+
+    let movies: Movie[] = [];
+    const API_URL = `https://api.themoviedb.org/3/movie/popular`;
 
     let childDivs: HTMLDivElement[] = [];
     let currentIndex = 0;
@@ -15,13 +24,14 @@
     const timeBetweenMovies: number = 20; // in seconds
 
     onMount(async () => {
-        await fetch(url)
+        await fetch(`${API_URL}?api_key=${PUBLIC_API_KEY}`)
         .then( response => response.json() )
         .then( data => {movies = data.results} )
         .catch(error => {
             console.log(error);
             return [];
         });
+        startCountdown(timeBetweenMovies);
 
         childDivs = Array.from(document.querySelectorAll('.movie-container > div'));
 
@@ -80,11 +90,11 @@
     </section>
 {/if}
 
-<div class="countdown-bar bg-rose-800 absolute h-2 -mt-2" style="width: {countdownWidth}%;"></div>
+<div class="countdown-bar bg-sky-800 absolute h-2 -mt-2" style="width: {countdownWidth}%;"></div>
 
 <style>
     .countdown-bar {
-        transition: width 1s linear; /* Smooth transition for the shrinking bar */
+        transition: width 1s linear;
     }
     :global(.active) {
         flex-basis: 100%;

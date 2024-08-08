@@ -18,5 +18,5 @@
             </svg>
         {/if}
     {/each}
-    <span class="px-4">{rating.toFixed(1)}</span>
+    <span class="px-4 mt-1">{rating.toFixed(1)}</span>
 </div>
