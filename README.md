@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-> Since the assignment was to make a narrowcasting one-page to present movies I made the assumption that it would be displayed on a larger screen in the store on a loop. There for I have not focussed on responsive and will this proof-of-concept best shown on larger screens (4K / 1440px) anything lower then that might not be optimal. 
+> Since the assignment was to make a narrowcasting one-page to present movies I made the assumption that it would be displayed on a larger screen in the store on a loop. Therefore I have not focussed on responsive and will this proof-of-concept look the best on larger screens (4K / 1440px) anything lower then that might not be optimal. 
 > However, it has been made in such a way that taking a little more time by adding a couple mediaqueries / tailwind mediaquerie utilities it can be made for smaller displays.
 
 ## Aditional things I would do if it wasnt a POC
