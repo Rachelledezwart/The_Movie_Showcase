@@ -12,9 +12,10 @@ npm run dev
 > Since the assignment was to make a narrowcasting one-page to present movies I made the assumption that it would be displayed on a larger screen in the store on a loop. There for I have not focussed on responsive and will this proof-of-concept best shown on larger screens (4K / 1440px) anything lower then that might not be optimal. 
 > However, it has been made in such a way that taking a little more time by adding a couple mediaqueries / tailwind mediaquerie utilities it can be made for smaller displays.
 
-## Todo if it wasnt a POC
+## Aditional things I would do if it wasnt a POC
 
   *  When a specific movie is displayed make the background a video instead of the standard backdrop. 
+  *  Refine the animation a little more. 
   *  Make a seperate class for obtaining the API data so there is less duplicate code. 
   *  Do more research into properly structuring the application. 
   *  Focus more on responsive. The focus for the assignment was larger screens so I have not payed much attention to responsive and how tailwind deals with mediaqueries. 
