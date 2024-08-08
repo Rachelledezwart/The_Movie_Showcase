@@ -9,7 +9,8 @@ Make sure there is an .env file present with an API-key (`PUBLIC_API_KEY`) for t
 npm install
 npm run dev
 ```
-Since the assignment was to make a narrowcasting one-page to present movies I made the assumption that it would be displayed on a larger screen in the store on a loop. There for I have not focussed on responsive and will this proof-of-concept best shown on larger screens (4K / 1440px) anything lower then that might not be optimal. However, it has been made in such a way that taking a little more time by adding a couple mediaqueries / tailwind mediaquerie utilities it can be made for smaller displays.
+> Since the assignment was to make a narrowcasting one-page to present movies I made the assumption that it would be displayed on a larger screen in the store on a loop. There for I have not focussed on responsive and will this proof-of-concept best shown on larger screens (4K / 1440px) anything lower then that might not be optimal. 
+> However, it has been made in such a way that taking a little more time by adding a couple mediaqueries / tailwind mediaquerie utilities it can be made for smaller displays.
 
 ## Todo if it wasnt a POC
 
@@ -23,8 +24,8 @@ Since the assignment was to make a narrowcasting one-page to present movies I ma
 ## In short
 
 A customer who runs a small local movie bluray/dvd shop (yes, that still exists in 2024!) wants you to setup a fancy, schmancy app that can be used to display several currently upcoming movies on several displays. \
-The idea is to display those in an automated fashion, for example for store visitors or guests as expositions. \ 
-The customer is specialised in the selling of special editions movies, like Criterion-like Bluray collectables. Their end-customers, and actual target audience, are actual movie collectors and enthousiasts. And we may assume are nitpicky on visual aesthetics. In a narrowcasting, or slideshow fashion, certain recent movies will be displayed in a tempting fashion. \ 
+The idea is to display those in an automated fashion, for example for store visitors or guests as expositions. <br/>
+The customer is specialised in the selling of special editions movies, like Criterion-like Bluray collectables. Their end-customers, and actual target audience, are actual movie collectors and enthousiasts. And we may assume are nitpicky on visual aesthetics. In a narrowcasting, or slideshow fashion, certain recent movies will be displayed in a tempting fashion. <br/> 
 What you want to show - and how you want to show it - is for the proof of concept up for your own interpretation. What would make it look good? It is your assignment to bring up a working such a display. 
 
 ## Assignment
